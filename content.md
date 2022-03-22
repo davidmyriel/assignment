@@ -4,16 +4,16 @@
 - `git pull` - will get changes from a remote branch into your tracking branch and merge them into a local branch
 - `git fetch` - get changes from a remote repo into your tracking branch
 
-`git push` takes our current branch, and checks to see whether or not there is a tracking branch for a remote repository connected to it. 
-If so, our changes are taken from our branch and pushed to the remote branch. 
-You can think of it as "make the remote branch resemble my local branch". 
-This will fail if the remote branch has diverged from your local branch. If some commits in the remote branch are in your local branch, your local branch needs to be synchronized with the remote branch with git pull or git fetch and git merge.
+`git push` checks if there is a tracking branch for a remote repo connected to your local branch. 
+If so, changes from the local branch and pushed to the remote branch. 
+You can think of git push as "make the remote branch resemble my local branch". 
+git push will fail if the remote branch has diverged from your local branch. If some commits in the remote branch are in your local branch, you should synchronize branches with git pull or git fetch and git merge.
 
 Often `git push` and `git pull` are described as equivalent. This isn't entirely correct, since `git pull` does two things. 
-`git pull` simply does a `git fetch` followed immediately by `git merge`. 
+`git pull` is a combination of `git fetch` immediately followed by `git merge`. 
 
 `git fetch` again takes our current branch, and checks to see if there is a tracking branch. 
 If so, it looks for changes in the remote branch, and pulls them into the tracking branch. 
-It does not change your local branch. 
+Please note that git fetch does not update your local branch. 
 To do that, you'll need to do `git merge origin/master` to merge those changes into your master branch.
-Some people prefer to use git fetch followed by git merge to make sure they understand the changes they are merging into their branch before the merge happens.
+git fetch is for users who wish to make sure they understand the changes they are merging into their branch before the merge happens.
